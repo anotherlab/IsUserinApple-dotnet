@@ -3,18 +3,6 @@ using System;
 using System.IO;
 using System.Linq;
 using rajapet.Apple;
-/*
-Step one
-dotnet new console -n IsUserInApple -f net5.0
-dotnet new gitignore
-
-Step 2 add dependences
-
-dotnet add package jose-jwt --version 3.1.1
-
-dotnet add package CommandLineParser --version 2.8.0
-https://devblogs.microsoft.com/ifdef-windows/command-line-parser-on-net5/
-*/
 
 namespace rajapet.isuserinapple
 {
