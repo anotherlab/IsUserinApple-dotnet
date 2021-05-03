@@ -15,12 +15,12 @@ namespace rajapet.isuserinapple
         public string PrivateKeyFile {get; set;}
 
         /// <summary>
-        /// A 10-character key identifier generated for Apple private key associated with your developer account
+        /// Your private key ID from App Store Connect
         /// </summary>
         public string KeyID {get; set;}
         
         /// <summary>
-        /// our 10-character Team ID associated with your developer account
+        /// Your issuer ID from the API Keys page in App Store Connect
         /// </summary>
         public string IssuerID {get; set;}
 
