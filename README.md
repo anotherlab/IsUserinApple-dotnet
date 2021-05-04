@@ -1,4 +1,4 @@
-# IsUserInApple
+# IsUserInApple - C# version
 ## Overly long overview
 I'm the Team Agent for our company's Apple App Store Development account. Our company is large enough that I do not have any interactions with most of the people with Apple accounts. After running the account for a few years, I needed a way to remove employees who had left the company from the App Store Development account account.
 
