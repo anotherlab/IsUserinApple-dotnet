@@ -66,14 +66,16 @@ namespace rajapet.Apple
         {
 	        List<User> users = new List<User>();
 
-           	var jsonString = GetUsers(token, 100, null).Result;
+            // Find the first 100 users.  If there there are more than
+            // 100 users, the "Next" property will contain the net URL to call
+           	var jsonString = GetUsers(100, null).Result;
 
             if (jsonString == null)
             {
                 return null;
             }
+
             var appConnectUsers = AppConnectUsers.FromJson(jsonString);
-            
             
             users.AddRange(	appConnectUsers.Data
                 .Select(s => s.Attributes)
@@ -84,7 +86,7 @@ namespace rajapet.Apple
             
             while (appConnectUsers.Links.Next != null)
             {
-                jsonString = GetUsers(token, 100, appConnectUsers.Links.Next.ToString()).Result;
+                jsonString = GetUsers(100, appConnectUsers.Links.Next.ToString()).Result;
                 appConnectUsers = AppConnectUsers.FromJson(jsonString);
                 users.AddRange(appConnectUsers.Data
                      .Select(s => s.Attributes)
@@ -97,7 +99,7 @@ namespace rajapet.Apple
             return users;
         }
 
-        private async Task<string> GetUsers(string token, int count, string nextUrl)
+        private async Task<string> GetUsers(int count, string nextUrl)
         {
             var url = nextUrl ?? $"https://api.appstoreconnect.apple.com/v1/users?limit={count}";
                 
@@ -140,8 +142,8 @@ namespace rajapet.Apple
         public Meta Meta { get; set; }
 
 	    public static AppConnectUsers FromJson(string json) => JsonConvert.DeserializeObject<AppConnectUsers>(json, Converter.Settings);
-
     }
+
     public partial class AppConnectUsersLinks
     {
         [JsonProperty("self")]
@@ -150,6 +152,7 @@ namespace rajapet.Apple
         [JsonProperty("next")]
         public Uri Next { get; set; }
     }
+
     public partial class Datum
     {
         [JsonProperty("type")]
