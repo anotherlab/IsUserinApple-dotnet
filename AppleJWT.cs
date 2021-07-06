@@ -43,6 +43,5 @@ namespace rajapet.Apple
 
             return token;
         }
-
     }
 }
