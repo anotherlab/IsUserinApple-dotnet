@@ -26,7 +26,7 @@ namespace rajapet.Apple
             };
 
             // Create the payload
-            var exp = Math.Round((DateTime.UtcNow.AddMinutes(30) - new DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds, 0);
+            var exp = Math.Round((DateTime.UtcNow.AddMinutes(10) - new DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds, 0);
 
             var payload = new Dictionary<string, object>()
             {
